@@ -16,12 +16,14 @@ namespace WebSales.Controllers
 
         public DepartmentsController(WebSalesContext context)
         {
+
             _context = context;
         }
 
         // GET: Departments
         public async Task<IActionResult> Index()
         {
+            
             return View(await _context.Department.ToListAsync());
         }
 
@@ -34,7 +36,7 @@ namespace WebSales.Controllers
             }
 
             var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (department == null)
             {
                 return NotFound();
@@ -54,7 +56,7 @@ namespace WebSales.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,name")] Department department)
+        public async Task<IActionResult> Create([Bind("Id,Name")] Department department)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +88,9 @@ namespace WebSales.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,name")] Department department)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Department department)
         {
-            if (id != department.id)
+            if (id != department.Id)
             {
                 return NotFound();
             }
@@ -102,7 +104,7 @@ namespace WebSales.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DepartmentExists(department.id))
+                    if (!DepartmentExists(department.Id))
                     {
                         return NotFound();
                     }
@@ -125,7 +127,7 @@ namespace WebSales.Controllers
             }
 
             var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (department == null)
             {
                 return NotFound();
@@ -147,7 +149,7 @@ namespace WebSales.Controllers
 
         private bool DepartmentExists(int id)
         {
-            return _context.Department.Any(e => e.id == id);
+            return _context.Department.Any(e => e.Id == id);
         }
     }
 }

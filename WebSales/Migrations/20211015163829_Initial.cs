@@ -11,13 +11,13 @@ namespace WebSales.Migrations
                 name: "Department",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    name = table.Column<string>(nullable: true)
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Department", x => x.id);
+                    table.PrimaryKey("PK_Department", x => x.Id);
                 });
         }
 
