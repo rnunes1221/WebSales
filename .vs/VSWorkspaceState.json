@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WebSales"
+    "\\WebSales",
+    "\\WebSales\\Models",
+    "\\WebSales\\Models\\Enums"
   ],
-  "SelectedNode": "\\WebSales.sln",
+  "SelectedNode": "\\WebSales\\Models\\Seller.cs",
   "PreviewInSolutionExplorer": false
 }
